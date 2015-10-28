@@ -24,13 +24,13 @@
 void pre_auton()
 {
 
-  //bStopTasksBetweenModes = true;
+  bStopTasksBetweenModes = true;
 
 }
 
 task autonomous()
 {
-	//AutonomousCodePlaceholderForTesting();
+	AutonomousCodePlaceholderForTesting();
 }
 
 task usercontrol()
@@ -38,9 +38,8 @@ task usercontrol()
 
 	while (true)
 	{
-	  // UserControlCodePlaceholderForTesting();
-		// updateDriveMotors(left, right);
 		updateOI();
-		// updateIntakeMotors(fwd);
+		updateIntake();
+		updateDrive();
 	}
 }

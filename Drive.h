@@ -26,3 +26,8 @@ void drive()
 		updateDriveMotors(0, 0);
 	}
 }
+
+void updateDrive()
+{
+	drive();
+}

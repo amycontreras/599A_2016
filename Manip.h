@@ -1,5 +1,3 @@
-#include "Macros.h"
-
 void updateIntakeMotors(int fwd)
 {
 	motor[left_intake_motor] = fwd;
@@ -16,4 +14,9 @@ void intake()
 	{
 		updateIntakeMotors(0);
 	}
+}
+
+void updateIntake()
+{
+	intake();
 }
