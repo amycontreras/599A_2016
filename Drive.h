@@ -17,18 +17,41 @@ void drive()
 		updateDriveMotors(driveY, driveY);
 	}
 	//turn
-	else if(driveX > DEADZONE || driveX < -DEADZONE)
+	else if(driveX > DEADZONE)
 	{
 		updateDriveMotors(driveX, -driveX);
+	}
+	else if(driveX < -DEADZONE)
+	{
+		updateDriveMotors(-driveX, driveX);
 	}
 	else
 	{
 		updateDriveMotors(0, 0);
+	}
+
+}
+
+void strafeDrive()
+{
+	if(strafe > DEADZONE)
+	{
+		motor[front_left_drive_motor] = strafe;
+		motor[back_left_drive_motor] = -strafe;
+		motor[front_right_drive_motor] = -strafe;
+		motor[back_right_drive_motor] = strafe;
+	}
+	else if(strafe < -DEADZONE)
+	{
+		motor[front_left_drive_motor] = -strafe;
+		motor[back_left_drive_motor] = strafe;
+		motor[front_right_drive_motor] = strafe;
+		motor[back_right_drive_motor] = -strafe;
 	}
 }
 
 void updateDrive()
 {
 	drive();
+	strafeDrive();
 }
-// extracomment
