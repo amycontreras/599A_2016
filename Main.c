@@ -20,6 +20,7 @@
 #include "Vex_Competition_Includes.c"
 #include "Drive.h"
 #include "Manip.h"
+#include "Auto.h"
 
 
 void pre_auton()
@@ -31,7 +32,7 @@ void pre_auton()
 
 task autonomous()
 {
-	AutonomousCodePlaceholderForTesting();
+	autoTest();
 }
 
 task usercontrol()

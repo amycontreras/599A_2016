@@ -32,23 +32,33 @@ void updateFlywheelMotors(int fwd)
 	motor[bottom_right_motor] = -fwd;
 }
 
-
-
 void flywheel()
 {
-	if(flywheelIn == 1)
+	if(halfSpeedFlywheel)
 	{
-		updateFlywheelMotors(127);
-	}
-	else if(flywheelOut == 1)
-	{
-		updateFlywheelMotors(-127);
+		if(halfSpeedFlywheel == 1)
+		{
+			updateFlywheelMotors(63);
+		}
 	}
 	else
 	{
-		updateFlywheelMotors(0);
+		if(flywheelIn == 1)
+		{
+			updateFlywheelMotors(127);
+		}
+		else if(flywheelOut == 1)
+		{
+			updateFlywheelMotors(-127);
+		}
+		else
+		{
+			updateFlywheelMotors(0);
+		}
 	}
 }
+
+
 
 void updateIntake()
 {
