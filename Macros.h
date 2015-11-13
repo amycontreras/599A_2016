@@ -1,5 +1,5 @@
 //drive
-int DEADZONE = 15;
+int DEADZONE = 10;
 int driveY = 0;
 int driveX = 0;
 int strafe = 0;
@@ -10,6 +10,7 @@ int outtakeVal = 0;
 
 int flywheelIn = 0;
 int flywheelOut = 0;
+
 
 void updateOI()
 {

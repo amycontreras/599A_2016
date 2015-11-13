@@ -8,50 +8,62 @@ void updateDriveMotors(int left,int right)
 	motor[back_right_drive_motor] = right;
 }
 
-void drive()
+
+void ok()
 {
-	//forward
-	//	add if(abs(driveY) > abs(driveX)) if it doesn't turn properly?? ok
-	if(driveY > DEADZONE || driveY < -DEADZONE)
+	if(vexRT[Ch3] > 10)
 	{
-		updateDriveMotors(driveY, driveY);
+		motor[front_left_drive_motor] = 127;
+		motor[back_left_drive_motor] = 127;
+		motor[front_right_drive_motor] = 127;
+		motor[back_right_drive_motor] = 127;
 	}
-	//turn
-	else if(driveX > DEADZONE)
+	else if(vexRT[Ch3] < -10)
 	{
-		updateDriveMotors(driveX, -driveX);
+		motor[front_left_drive_motor] = -127;
+		motor[back_left_drive_motor] = -127;
+		motor[front_right_drive_motor] = -127;
+		motor[back_right_drive_motor] = -127;
 	}
-	else if(driveX < -DEADZONE)
+	else if(vexRT[Ch1] > 10)
 	{
-		updateDriveMotors(-driveX, driveX);
+		motor[front_left_drive_motor] = 127;
+		motor[back_left_drive_motor] = 127;
+		motor[front_right_drive_motor] = -127;
+		motor[back_right_drive_motor] = -127;
+	}
+	else if(vexRT[Ch1] < -10)
+	{
+		motor[front_left_drive_motor] = -127;
+		motor[back_left_drive_motor] = -127;
+		motor[front_right_drive_motor] = 127;
+		motor[back_right_drive_motor] = 127;
+	}
+	else if(vexRT[Btn8L] == 1)
+	{
+		motor[front_left_drive_motor] = 127;
+		motor[back_left_drive_motor] = -127;
+		motor[front_right_drive_motor] = -127;
+		motor[back_right_drive_motor] = 127;
+	}
+	else if(vexRT[Btn8R] == 1)
+	{
+		motor[front_left_drive_motor] = -127;
+		motor[back_left_drive_motor] = 127;
+		motor[front_right_drive_motor] = 127;
+		motor[back_right_drive_motor] = -127;
 	}
 	else
 	{
-		updateDriveMotors(0, 0);
-	}
-
-}
-
-void strafeDrive()
-{
-	if(strafe > DEADZONE)
-	{
-		motor[front_left_drive_motor] = strafe;
-		motor[back_left_drive_motor] = -strafe;
-		motor[front_right_drive_motor] = -strafe;
-		motor[back_right_drive_motor] = strafe;
-	}
-	else if(strafe < -DEADZONE)
-	{
-		motor[front_left_drive_motor] = -strafe;
-		motor[back_left_drive_motor] = strafe;
-		motor[front_right_drive_motor] = strafe;
-		motor[back_right_drive_motor] = -strafe;
+		motor[front_left_drive_motor] = 0;
+		motor[back_left_drive_motor] = 0;
+		motor[front_right_drive_motor] = 0;
+		motor[back_right_drive_motor] = 0;
 	}
 }
+
 
 void updateDrive()
 {
-	drive();
-	strafeDrive();
+	ok();
 }

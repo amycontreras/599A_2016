@@ -21,10 +21,11 @@
 #include "Drive.h"
 #include "Manip.h"
 
+
 void pre_auton()
 {
 
-  bStopTasksBetweenModes = true;
+	bStopTasksBetweenModes = true;
 
 }
 

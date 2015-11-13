@@ -26,11 +26,13 @@ void intake()
 
 void updateFlywheelMotors(int fwd)
 {
-	motor[top_right_motor] = fwd;
+	motor[top_right_motor] = -fwd;
 	motor[top_left_motor] = fwd;
 	motor[bottom_left_motor] = fwd;
-	motor[bottom_right_motor] = fwd;
+	motor[bottom_right_motor] = -fwd;
 }
+
+
 
 void flywheel()
 {
