@@ -1,19 +1,23 @@
+// The Macros.h file has every global variable used in this code.
+
 //drive
 int DEADZONE = 10;
 int driveY = 0;
 int driveX = 0;
 int strafeR = 0;
 int strafeL = 0;
-int halfSpeedFlywheel = 0;
 
 //intake
 int intakeVal = 0;
 int outtakeVal = 0;
 
+//flywheel
 int flywheelIn = 0;
 int flywheelOut = 0;
+int halfSpeedFlywheel = 0;
 
-
+// See Manip.h file for full description. This function refreshes
+// every variable created in this file.
 void updateOI()
 {
 	driveY = vexRT[Ch3];

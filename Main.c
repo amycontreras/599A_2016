@@ -18,11 +18,18 @@
 #pragma userControlDuration(120)
 
 #include "Vex_Competition_Includes.c"
+
+// Don't forget to include all other files from the code. Notice
+// that the Macros.h file isn't included. This is because it has
+// already been included in the Drive.h file...and the Drive.h
+// file is already here. Therefore it doesn't have to be included
+// twice. Nice.
 #include "Drive.h"
 #include "Manip.h"
 #include "Auto.h"
 
-
+// Premade function. Used to set things before auto code.
+// i.e. Resetting encoders.
 void pre_auton()
 {
 
@@ -30,6 +37,7 @@ void pre_auton()
 
 }
 
+// This is where the autonomous code goes.
 task autonomous()
 {
 	autoTest();
@@ -40,6 +48,8 @@ task usercontrol()
 
 	while (true)
 	{
+		// This is where you put all those update files you created!
+		// Yay!
 		updateOI();
 		updateIntake();
 		updateDrive();
