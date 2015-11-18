@@ -18,33 +18,36 @@ void updateDriveMotors(int left,int right)
 // for now, as of 11/16/2015.
 void drive()
 {
+	int fwd;
+	fwd = vexRT[Ch3];
+
 	if(vexRT[Ch3] > 10)
 	{
-		motor[front_left_drive_motor] = 120;
-		motor[back_left_drive_motor] = 120;
-		motor[front_right_drive_motor] = 120;
-		motor[back_right_drive_motor] = 120;
+		motor[front_left_drive_motor] = fwd;
+		motor[back_left_drive_motor] = fwd;
+		motor[front_right_drive_motor] = fwd;
+		motor[back_right_drive_motor] = fwd;
 	}
 	else if(vexRT[Ch3] < -10)
 	{
-		motor[front_left_drive_motor] = -120;
-		motor[back_left_drive_motor] = -120;
-		motor[front_right_drive_motor] = -120;
-		motor[back_right_drive_motor] = -120;
+		motor[front_left_drive_motor] = -fwd;
+		motor[back_left_drive_motor] = -fwd;
+		motor[front_right_drive_motor] = -fwd;
+		motor[back_right_drive_motor] = -fwd;
 	}
 	else if(vexRT[Ch1] > 10)
 	{
-		motor[front_left_drive_motor] = 120;
-		motor[back_left_drive_motor] = 120;
-		motor[front_right_drive_motor] = -120;
-		motor[back_right_drive_motor] = -120;
+		motor[front_left_drive_motor] = fwd;
+		motor[back_left_drive_motor] = fwd;
+		motor[front_right_drive_motor] = -fwd;
+		motor[back_right_drive_motor] = -fwd;
 	}
 	else if(vexRT[Ch1] < -10)
 	{
-		motor[front_left_drive_motor] = -120;
-		motor[back_left_drive_motor] = -120;
-		motor[front_right_drive_motor] = 120;
-		motor[back_right_drive_motor] = 120;
+		motor[front_left_drive_motor] = -fwd;
+		motor[back_left_drive_motor] = -fwd;
+		motor[front_right_drive_motor] = fwd;
+		motor[back_right_drive_motor] = fwd;
 	}
 // This is strafe code...with buttons. It lets the robot
 // strafe at full speed left or right if a button is pressed.
@@ -54,17 +57,17 @@ void drive()
 // out really helps the logic.
 	else if(vexRT[Btn7R] == 1)
 	{
-		motor[front_left_drive_motor] = 127;
-		motor[back_left_drive_motor] = -127;
-		motor[front_right_drive_motor] = -127;
-		motor[back_right_drive_motor] = 127;
+		motor[front_left_drive_motor] = 63;
+		motor[back_left_drive_motor] = -63;
+		motor[front_right_drive_motor] = -63;
+		motor[back_right_drive_motor] = 63;
 	}
 	else if(vexRT[Btn7L] == 1)
 	{
-		motor[front_left_drive_motor] = -127;
-		motor[back_left_drive_motor] = 127;
-		motor[front_right_drive_motor] = 127;
-		motor[back_right_drive_motor] = -127;
+		motor[front_left_drive_motor] = -63;
+		motor[back_left_drive_motor] = 63;
+		motor[front_right_drive_motor] = 63;
+		motor[back_right_drive_motor] = -63;
 	}
 	else
 	{
