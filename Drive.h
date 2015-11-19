@@ -19,35 +19,38 @@ void updateDriveMotors(int left,int right)
 void drive()
 {
 	int fwd;
+	int spin;
+
+	spin = vexRT[Ch1];
 	fwd = vexRT[Ch3];
 
-	if(vexRT[Ch3] > 10)
+	if(abs(vexRT[Ch3]) > 10)
 	{
 		motor[front_left_drive_motor] = fwd;
 		motor[back_left_drive_motor] = fwd;
 		motor[front_right_drive_motor] = fwd;
 		motor[back_right_drive_motor] = fwd;
-	}
+	}/*
 	else if(vexRT[Ch3] < -10)
 	{
 		motor[front_left_drive_motor] = -fwd;
 		motor[back_left_drive_motor] = -fwd;
 		motor[front_right_drive_motor] = -fwd;
 		motor[back_right_drive_motor] = -fwd;
-	}
+	}*/
 	else if(vexRT[Ch1] > 10)
 	{
-		motor[front_left_drive_motor] = fwd;
-		motor[back_left_drive_motor] = fwd;
-		motor[front_right_drive_motor] = -fwd;
-		motor[back_right_drive_motor] = -fwd;
+		motor[front_left_drive_motor] = spin;
+		motor[back_left_drive_motor] = spin;
+		motor[front_right_drive_motor] = -spin;
+		motor[back_right_drive_motor] = -spin;
 	}
 	else if(vexRT[Ch1] < -10)
 	{
-		motor[front_left_drive_motor] = -fwd;
-		motor[back_left_drive_motor] = -fwd;
-		motor[front_right_drive_motor] = fwd;
-		motor[back_right_drive_motor] = fwd;
+		motor[front_left_drive_motor] = -spin;
+		motor[back_left_drive_motor] = -spin;
+		motor[front_right_drive_motor] = spin;
+		motor[back_right_drive_motor] = spin;
 	}
 // This is strafe code...with buttons. It lets the robot
 // strafe at full speed left or right if a button is pressed.
