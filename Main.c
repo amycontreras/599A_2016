@@ -40,7 +40,7 @@ void pre_auton()
 // This is where the autonomous code goes.
 task autonomous()
 {
-	autoTest();
+	//autoTest();
 }
 
 task usercontrol()
