@@ -11,6 +11,6 @@ void autoTest()
 	updateIntakeMotors(127);
 	wait1Msec(4000);
 	updateFlywheelMotors(0);
-	updateIntakeMotors(0);
-	*/
+	updateIntakeMotors(0);  */
+
 }
