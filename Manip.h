@@ -49,7 +49,7 @@ void flywheel()
 	{
 		if(halfSpeedFlywheel == 1)
 		{
-			updateFlywheelMotors(95);
+			updateFlywheelMotors(75);
 		}
 	}
 	else
