@@ -19,28 +19,23 @@
 
 #include "Vex_Competition_Includes.c"
 
-// Don't forget to include all other files from the code. Notice
-// that the Macros.h file isn't included. This is because it has
-// already been included in the Drive.h file...and the Drive.h
-// file is already here. Therefore it doesn't have to be included
-// twice. Nice.
+// All files used to run the robot are included in the Main.c.
+// Notice that the Macros.h file isn't included. This is because
+// it has already been included in the Drive.h file, which is
+// documented below. Therefore, the Macros.h doesn't have to be
+// directly included! :)
 #include "Drive.h"
 #include "Manip.h"
 #include "Auto.h"
 
-// Premade function. Used to set things before auto code.
-// i.e. Resetting encoders.
 void pre_auton()
 {
 
-	bStopTasksBetweenModes = true;
-
 }
 
-// This is where the autonomous code goes.
 task autonomous()
 {
-	//autoTest();
+	autoTest();
 }
 
 task usercontrol()
@@ -48,10 +43,11 @@ task usercontrol()
 
 	while (true)
 	{
-		// This is where you put all those update files you created!
-		// Yay!
+		// This is where all update functions are included so they
+		// are constantly being updated.
 		updateOI();
 		updateIntake();
 		updateDrive();
+
 	}
 }

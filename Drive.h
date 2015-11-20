@@ -1,6 +1,6 @@
 #include "Macros.h"
 
-void updateDriveMotors(int left, right)
+void updateDriveMotors(int left, int right)
 {
 		motor[front_left_drive_motor] = left;
 		motor[back_left_drive_motor] = left;
