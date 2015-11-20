@@ -1,11 +1,15 @@
 #include "Macros.h"
 
+void updateDriveMotors(int left, right)
+{
+		motor[front_left_drive_motor] = left;
+		motor[back_left_drive_motor] = left;
+		motor[front_right_drive_motor] = right;
+		motor[back_right_drive_motor] = right;
+}
+
 // This is basic drive code. You check to see whether or not
-// the joystick channel is greater than the DEADZONE, a value
-// of 10 (set in the Macros.h file) that prevents random
-// movements upon accidentally jolting the controller. When
-// testing this robot, replacing each item with shortened
-// variables did not work.
+// the joystick channel is greater than the DEADZONE (see Macros.h)
 void drive()
 {
 	int fwd;
@@ -14,14 +18,22 @@ void drive()
 	spin = vexRT[Ch1];
 	fwd = vexRT[Ch3];
 
-	if(abs(vexRT[Ch3]) > DEADZONE)
+	// This if statement drives forward and backwards.
+	// The absolute value accounts for any negatives of the
+	// joystick position in order to eliminate writing
+	// extra code for a "negative" DEADZONE (-DEADZONE).
+	if(abs(fwd) > DEADZONE)
 	{
 		motor[front_left_drive_motor] = fwd;
 		motor[back_left_drive_motor] = fwd;
 		motor[front_right_drive_motor] = fwd;
 		motor[back_right_drive_motor] = fwd;
 	}
-	else if(abs(vexRT[Ch1]) > DEADZONE)
+	// This statement turns left and right. In order for a robot to
+	// turn, the motors on the side of the turning direction must be
+	// reversed. i.e. to turn right, the right motors must be running
+	// in the opposite direction.
+	else if(abs(spin) > DEADZONE)
 	{
 		motor[front_left_drive_motor] = spin;
 		motor[back_left_drive_motor] = spin;
@@ -29,19 +41,19 @@ void drive()
 		motor[back_right_drive_motor] = -spin;
 
 	}
-// This is strafe code...with buttons. It lets the robot
-// strafe at full speed left or right if a button is pressed.
-// Certain motors are reversed in order for one pair of wheels
-// to be facing inwards with the other outwards. Drawing this
-// out really helps the logic.
-	else if(vexRT[Btn7R] == 1)
+	// This lets the robot strafe at half speed, left or right if a
+	// button is pressed. Certain motors are reversed in order for
+	// one pair of wheels to be facing inwards with the other outwards.
+	// See diagram. The two variables, strafeR and strafeL, stand for
+	// buttons 7R and 7L respectively.
+	else if(strafeR == 1)
 	{
 		motor[front_left_drive_motor] = 63;
 		motor[back_left_drive_motor] = -63;
 		motor[front_right_drive_motor] = -63;
 		motor[back_right_drive_motor] = 63;
 	}
-	else if(vexRT[Btn7L] == 1)
+	else if(strafeL == 1)
 	{
 		motor[front_left_drive_motor] = -63;
 		motor[back_left_drive_motor] = 63;
