@@ -19,6 +19,8 @@
 	int flywheelIn = 0;
 	int flywheelOut = 0;
 	int halfSpeedFlywheel = 0;
+	int newButton = 0;
+	int stopButton = 0;
 
 
 // This function refreshes every variable created in this file.
@@ -33,4 +35,6 @@ void updateOI()
 	flywheelIn = vexRT[Btn6U];
 	flywheelOut = vexRT[Btn6D];
 	halfSpeedFlywheel = vexRT[Btn8U];
+	newButton = vexRT[Btn8D];
+	stopButton = vexRT[Btn8R];
 }
