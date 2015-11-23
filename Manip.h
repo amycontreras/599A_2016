@@ -45,18 +45,25 @@ void flywheel()
 	// the max speed if pressed. The maximum is 127, so having it at 63
 	// lowers the power of the shot in order to be able to shoot with
 	// less force at a closer distance.
-	if(halfSpeedFlywheel)
+	if(halfSpeedFlywheel == 1)
 	{
-		if(halfSpeedFlywheel == 1)
-		{
-			updateFlywheelMotors(75);
-		}
+		updateFlywheelMotors(60);
 	}
-	else
+	else if(stopButton == 1)
 	{
-	// This statement lets all four Flywheel motors move at max speed,
-	// whether forwards or reverse in order to intake or outtake balls.
-		if(flywheelIn == 1)
+		updateFlywheelMotors(0);
+	}
+	else if(newButton)
+	{
+		if(newButton == 1)
+		{
+			updateDriveMotors(127, 127);
+			wait1Msec(400);
+			updateDriveMotors(0, 0);
+		}
+		// This statement lets all four Flywheel motors move at max speed,
+		// whether forwards or reverse in order to intake or outtake balls.
+		else if(flywheelIn == 1)
 		{
 			updateFlywheelMotors(127);
 		}
@@ -78,6 +85,6 @@ void flywheel()
 // is then placed in the while(true) loop in the Main.c file.
 void updateIntake()
 {
-	intake();
-	flywheel();
+intake();
+flywheel();
 }
