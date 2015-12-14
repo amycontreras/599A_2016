@@ -47,7 +47,7 @@ void flywheel()
 	// less force at a closer distance.
 	if(halfSpeedFlywheel == 1)
 	{
-		updateFlywheelMotors(60);
+		updateFlywheelMotors(127); //used to be 60. now at full power, 127.
 	}
 	else if(stopButton == 1)
 	{
@@ -85,6 +85,6 @@ void flywheel()
 // is then placed in the while(true) loop in the Main.c file.
 void updateIntake()
 {
-intake();
-flywheel();
+	intake();
+	flywheel();
 }
