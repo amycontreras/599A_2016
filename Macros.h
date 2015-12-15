@@ -17,9 +17,8 @@
 
 	//flywheel
 	int flywheelIn = 0;
-	int flywheelOut = 0;
 	int halfSpeedFlywheel = 0;
-	int newButton = 0;
+	int preset = 0;
 	int stopButton = 0;
 
 
@@ -32,9 +31,8 @@ void updateOI()
 	intakeVal = vexRT[Btn5U];
 	outtakeVal = vexRT[Btn5D];
 
-	flywheelIn = vexRT[Btn6U];
-	flywheelOut = vexRT[Btn6D];
+	flywheelIn = vexRT[Btn7U];
 	halfSpeedFlywheel = vexRT[Btn8U];
-	newButton = vexRT[Btn8D];
+	preset = vexRT[Btn8D];
 	stopButton = vexRT[Btn8R];
 }

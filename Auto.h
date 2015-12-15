@@ -1,23 +1,11 @@
-//YAY IT DRIVES FOrward
-
 void autoTest()
 {
+	// start flywheel
 	updateFlywheelMotors(60);
+	// drive forward for 5 seconds
 	updateDriveMotors(-127, -127);
 	wait1Msec(5000);
-/*
-	motor[front_left_drive_motor] = -63;
-	motor[back_left_drive_motor] = 63;
-	motor[front_right_drive_motor] = 63;
-	motor[back_right_drive_motor] = -63;
-
-	wait1Msec(300);
-
-	motor[front_left_drive_motor] = 0;
-	motor[back_left_drive_motor] = 0;
-	motor[front_right_drive_motor] = 0;
-	motor[back_right_drive_motor] = 0;
-*/
+	// drive reverse for .4 seconds then stop
 	updateDriveMotors(127, 127);
 	wait1Msec(400);
 	updateDriveMotors(0, 0);
@@ -36,7 +24,7 @@ void autoTest()
 	wait1Msec(1500);
 	updateIntakeMotors(0);
 	wait1Msec(2500);
-	// drive fwd
+	// drive forward for .4 seconds then stop
 	updateDriveMotors(-127, -127);
 	wait1Msec(400);
 	updateDriveMotors(0, 0);

@@ -47,15 +47,19 @@ void flywheel()
 	// less force at a closer distance.
 	if(halfSpeedFlywheel == 1)
 	{
-		updateFlywheelMotors(127); //used to be 60. now at full power, 127.
+		updateFlywheelMotors(60); // half speed now at 60. CHANGE ME
+	}
+	else if(flywheelIn == 1)
+	{
+		updateFlywheelMotors(127);	// full speed at 127. FUCK OFF SHRUTI <3
 	}
 	else if(stopButton == 1)
 	{
 		updateFlywheelMotors(0);
 	}
-	else if(newButton)
+	else if(preset) // PRESET : BUTTON THAT GOES BACKWARDS AFTER HITTING POLE THING HAHAHAHAHA here shruti
 	{
-		if(newButton == 1)
+		if(preset == 1)
 		{
 			updateDriveMotors(127, 127);
 			wait1Msec(400);
@@ -63,18 +67,6 @@ void flywheel()
 		}
 		// This statement lets all four Flywheel motors move at max speed,
 		// whether forwards or reverse in order to intake or outtake balls.
-		else if(flywheelIn == 1)
-		{
-			updateFlywheelMotors(127);
-		}
-		else if(flywheelOut == 1)
-		{
-			updateFlywheelMotors(-127);
-		}
-		else
-		{
-			updateFlywheelMotors(0);
-		}
 	}
 }
 
